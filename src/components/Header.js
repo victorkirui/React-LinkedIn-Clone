@@ -1,7 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
 import styled from "styled-components";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <Container>
       <Content>
@@ -52,9 +53,15 @@ const Header = () => {
         </MenuWrap>
         <Profile>
           <a>
-            <img src="/images/user.svg" alt="" />
-            <span>Me</span>
-            <img src="/images/down-icon.svg" className="drop-down" alt="" />
+            {props.user && props.user.photoURL ? (
+              <img src={props.user.photoURL} alt="" />
+            ) : (
+              <img src="/images/user.svg" alt="" />
+            )}
+            <span>
+              Me
+              <img src="/images/down-icon.svg" className="drop-down" alt="" />
+            </span>
           </a>
           <SignOut>
             <a>Sign Out</a>
@@ -190,9 +197,16 @@ const Profile = styled(MenuList)`
   & > a {
     img {
       border-radius: 50px;
+      width: 30px;
+      height: 30px;
     }
     .drop-down {
       width: 15px;
+      height: auto;
+    }
+    span {
+      display: flex;
+      align-items: center;
     }
   }
   &:hover {
@@ -205,6 +219,9 @@ const Profile = styled(MenuList)`
 `;
 const Work = styled(MenuList)`
   list-style-type: none;
+  border-left: 1px solid rgba(0, 0, 0, 0.05);
+  margin-left: 20px;
+  padding-left: 20px;
   & > a {
     span {
       display: flex;
@@ -217,4 +234,14 @@ const Work = styled(MenuList)`
   }
 `;
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    user: state.userState.user,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

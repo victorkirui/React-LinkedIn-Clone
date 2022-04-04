@@ -39,10 +39,7 @@ const RightSide = () => {
         </Recommendations>
       </FeedCard>
       <ImgCard>
-        <img
-          src="https://static-exp1.licdn.com/scds/common/u/images/promo/ads/li_evergreen_jobs_ad_300x250_v1.jpg"
-          alt=""
-        />
+        <img src="/images/dream-jobs.png" alt="" />
       </ImgCard>
     </Container>
   );

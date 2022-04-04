@@ -145,7 +145,7 @@ const ConnectionsContent = styled.div`
 const Wrapper = styled.div`
   background: #fff;
   border-radius: 6px 6px 0px 0px;
-  margin-top: 20px;
+  margin-top: 10px;
   padding: 10px;
   box-shadow: 0 0 0 1px rgb(0 0 0 / 15%), 0 0 0 rgb(0 0 0 / 20%);
   div {
