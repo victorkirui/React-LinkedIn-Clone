@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import PostModal from "./PostModal";
 import SharePost from "./SharePost";
 
 const Main = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleModal = (e) => {
+    e.preventDefault();
+
+    setOpen(!open);
+    console.log(open);
+  };
+
   return (
     <Container>
-      <SharePost />
+      <SharePost open={open} handleModal={handleModal} />
       <Article>
         <SharedActor>
           <div>
@@ -69,6 +79,7 @@ const Main = () => {
           </button>
         </SocialActions>
       </Article>
+      {open && <PostModal setOpen={setOpen} handleModal={handleModal} />}
     </Container>
   );
 };

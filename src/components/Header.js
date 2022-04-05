@@ -1,10 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
+import { signOutAPI } from "../actions";
+import { Navigate } from "react-router-dom";
 
 const Header = (props) => {
   return (
     <Container>
+      {!props.user && <Navigate replace to="/" />}
       <Content>
         <Logo>
           <a href="/home">
@@ -63,7 +66,7 @@ const Header = (props) => {
               <img src="/images/down-icon.svg" className="drop-down" alt="" />
             </span>
           </a>
-          <SignOut>
+          <SignOut onClick={() => props.signOut()}>
             <a>Sign Out</a>
           </SignOut>
         </Profile>
@@ -241,7 +244,9 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    signOut: () => dispatch(signOutAPI()),
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

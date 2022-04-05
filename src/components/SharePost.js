@@ -1,29 +1,29 @@
 import React from "react";
 import styled from "styled-components";
 
-const SharePost = () => {
+const SharePost = ({ handleModal }) => {
   return (
     <Container>
       <SharedPost>
         <div>
           <img src="/images/user.svg" alt="" />
-          <button> Start a post</button>
+          <button onClick={handleModal}> Start a post</button>
         </div>
         <div>
           <Button>
-            <img src="/images/photo-icon.svg" alt="" />
+            <img src="/images/photo-col.png" alt="" />
             Photo
           </Button>
           <Button>
-            <img src="/images/video.svg" alt="" />
+            <img src="/images/video.png" alt="" />
             Video
           </Button>
           <Button>
-            <img src="/images/event-icon.svg" alt="" />
+            <img src="/images/event-icon.png" alt="" />
             Event
           </Button>
           <Button>
-            <img src="/images/article.svg" alt="" />
+            <img src="/images/article-icon.png" alt="" />
             Write artcle
           </Button>
         </div>
@@ -70,7 +70,8 @@ const SharedPost = styled(CommonCard)`
       justify-content: space-around;
       flex-wrap: wrap;
       img {
-        width: 30px;
+        width: auto;
+        height: 25px;
       }
     }
   }

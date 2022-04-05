@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { connect } from "react-redux";
 
-const LeftSide = () => {
+const LeftSide = (props) => {
   return (
     <Container>
       <Content>
@@ -13,7 +14,7 @@ const LeftSide = () => {
             </div>
           </a>
           <span>
-            <h5>Welcome, Victor Kirui!</h5>
+            <h5>Welcome, {props.user ? props.user.displayName : "there"}</h5>
             <p>Add a photo</p>
           </span>
           <Connections>
@@ -187,4 +188,10 @@ const Item = styled(Discover)`
   }
 `;
 
-export default LeftSide;
+const mapStateToProps = (state) => {
+  return {
+    user: state.userState.user,
+  };
+};
+
+export default connect(mapStateToProps)(LeftSide);
