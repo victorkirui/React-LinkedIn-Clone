@@ -4,18 +4,30 @@ import PostModal from "./PostModal";
 import SharePost from "./SharePost";
 
 const Main = () => {
-  const [open, setOpen] = useState(false);
+  const [showModal, setShowModal] = useState("close");
 
-  const handleModal = (e) => {
+  const handleClick = (e) => {
     e.preventDefault();
+    if (e.target !== e.currentTarget) {
+      return;
+    }
 
-    setOpen(!open);
-    console.log(open);
+    switch (showModal) {
+      case "open":
+        setShowModal("close");
+        break;
+      case "close":
+        setShowModal("open");
+        break;
+      default:
+        setShowModal("close");
+        break;
+    }
   };
 
   return (
     <Container>
-      <SharePost open={open} handleModal={handleModal} />
+      <SharePost handleClick={handleClick} />
       <Article>
         <SharedActor>
           <div>
@@ -79,7 +91,7 @@ const Main = () => {
           </button>
         </SocialActions>
       </Article>
-      {open && <PostModal setOpen={setOpen} handleModal={handleModal} />}
+      <PostModal showModal={showModal} handleClick={handleClick} />
     </Container>
   );
 };

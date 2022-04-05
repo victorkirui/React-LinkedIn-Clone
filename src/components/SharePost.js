@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-const SharePost = ({ handleModal }) => {
+const SharePost = ({ handleClick }) => {
   return (
     <Container>
       <SharedPost>
         <div>
           <img src="/images/user.svg" alt="" />
-          <button onClick={handleModal}> Start a post</button>
+          <button onClick={handleClick}> Start a post</button>
         </div>
         <div>
           <Button>

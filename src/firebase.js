@@ -1,4 +1,6 @@
 import firebase from "firebase";
+
+// FIREBASE VERSION 9
 // import { initializeApp } from "firebase/app";
 // import { getFirestore } from "firebase/firestore";
 // import { getAuth, GoogleAuthProvider } from "firebase/auth";
@@ -24,6 +26,7 @@ const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
 const storage = firebase.storage();
 
+// NEW WAY OF USING FIREBASE SERVICES - NEW VERSION OF FIREBASE( VERSION 9)
 // const db = getFirestore();firease
 // const auth = getAuth();
 // const provider = new GoogleAuthProvider();
