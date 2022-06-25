@@ -4,10 +4,6 @@
 
 ![](./src/Images/screencapture2.png)
 
-### Links
-
-- Live Site URL: [My Finished Design](#)
-
 ### Built with
 
 - React
